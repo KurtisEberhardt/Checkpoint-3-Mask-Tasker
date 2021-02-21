@@ -4,7 +4,7 @@ import { loadState } from "./Utils/LocalStorage.js"
 
 class App {
   taskController = new TaskController();
-  ItemController = new ItemController();
+  itemController = new ItemController();
 }
 
 window["app"] = new App();

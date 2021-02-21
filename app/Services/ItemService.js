@@ -7,12 +7,19 @@ class ItemService {
         ProxyState.on('toppings', saveState)
     }
     createItem(newItem) {
+        event.preventDefault()
         ProxyState.item = [new Item(newItem), ...ProxyState.item]
         console.log(ProxyState.item)
+        saveState()
 
     }
     delete(itemId) {
-        ProxyState.item = ProxyState.item.filter(i => i.itemId != itemId)
+        // console.log('deleting ' + itemId)
+
+        if (window.confirm("Are you sure you want to delete that?")) {
+            ProxyState.item = ProxyState.item.filter(i => i.itemId != itemId)
+        }
+        saveState()
     }
 }
 export const itemService = new ItemService();

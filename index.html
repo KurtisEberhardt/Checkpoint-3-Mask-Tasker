@@ -15,15 +15,24 @@
     <header>
         <nav class="navbar navbar-dark navbar-expand text-light navbar-color">
             <a class="navbar-brand" href="#">
-                <span class="ml-2">MaskTasker</span>
-                <span class="center"><button type="button" class="btn-success btn-sm"><small>+create new list</small></button></span>
+                <span class="ml-2">MaskTasker
+
+                </span>
+                <form onsubmit="app.taskController.createTask(event); return false">
+                    <span class="form-group">
+                        <input type="color" id="taskColor" name="taskColor" value="#ff0000">
+                        <input maxlength="15" minlength=3 type="text" name="title"
+                            placeholder="Got something to do...?">
+                        <button class="btn-success" type="submit">+Add A New List</button>
+                    </span>
+                </form>
             </a>
         </nav>
     </header>
     <main>
         <div id="app">
             <div class="container-fluid">
-                <div class="row">  
+                <div id="task" class="row">
                 </div>
             </div>
         </div>

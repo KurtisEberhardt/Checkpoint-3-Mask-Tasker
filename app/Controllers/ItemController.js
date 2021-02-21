@@ -1,8 +1,8 @@
 import { itemService } from "../Services/ItemService.js";
-import { ProxyState } from "../AppState.js";
 
 export default class ItemController {
     createItem(event, taskId) {
+        // console.log("trying to create event" + taskId)
         event.preventDefault()
         let form = event.target
         let newItem = {

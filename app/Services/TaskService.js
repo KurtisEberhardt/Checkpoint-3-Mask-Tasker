@@ -8,11 +8,16 @@ class TaskService {
     }
     createTask(newTask) {
         ProxyState.task = [new Task(newTask), ...ProxyState.task]
+        saveState()
     }
 
     delete(taskId) {
-        ProxyState.task = ProxyState.task.filter(t => t.taskId != taskId)
-        ProxyState.item = ProxyState.item.filter(i => i.taskId != taskId)
+        if (window.confirm("Are you sure you want to delete this?")) {
+            ProxyState.task = ProxyState.task.filter(t => t.taskId != taskId)
+            ProxyState.item = ProxyState.item.filter(i => i.taskId != taskId)
+
+        }
+        saveState()
     }
 }
 export const taskService = new TaskService();
