@@ -1,12 +1,12 @@
-import {generateId} from "../Utils/generateId.js"
-import {ProxyState} from "../AppState.js"
+import { generateId } from "../Utils/generateId.js"
+import { ProxyState } from "../AppState.js"
 
-export default class Task{
-    constructor({title, taskId = generateId()}){
+export default class Task {
+    constructor({ title, taskId = generateId() }) {
         this.title = title
-        this.taskId = taskId 
+        this.taskId = taskId
     }
-    get Template(){
+    get Template() {
         return /*html*/`                    
         <div class="col-4 card mt-5 ml-5">
             <span><h1 class="card-header">
@@ -18,7 +18,7 @@ export default class Task{
 
    </div>`
     }
-    get Item(){
+    get Item() {
         let template = ''
         let items = ProxyState.item.filter(i => i.itemId == this.taskId)
         items.forEach(i => template += i.Template)
