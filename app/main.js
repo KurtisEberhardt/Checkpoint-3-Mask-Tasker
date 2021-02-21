@@ -1,9 +1,11 @@
-import ValuesController from "./Controllers/ValuesController.js";
 import TaskController from "./Controllers/TaskController.js"
+import ItemController from "./Controllers/ItemController.js"
+import { loadState } from "./Utils/LocalStorage.js"
 
 class App {
-  //valuesController = new ValuesController();
   taskController = new TaskController();
+  ItemController = new ItemController();
 }
 
 window["app"] = new App();
+loadState()
